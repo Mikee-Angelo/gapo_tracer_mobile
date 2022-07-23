@@ -3,6 +3,8 @@ import 'package:app/controller/services/AuthServices.dart';
 import 'package:app/model/StatusModel.dart';
 import 'package:app/view/Auth/Login.dart';
 import 'package:app/view/Home.dart';
+import 'package:app/view/LoginLoading.dart';
+import 'package:app/view/RegisterLoading.dart';
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -20,6 +22,8 @@ class AuthProvider extends ChangeNotifier {
     required TextEditingController password,
   }) async {
     String? token = await _notification.generateToken();
+
+    Navigator.push(context, MaterialPageRoute(builder: (_) => LoginLoading()));
     await _services
         .login(
       token: token!,
@@ -27,7 +31,9 @@ class AuthProvider extends ChangeNotifier {
       password: password.text,
     )
         .then((res) {
-      if (res.user == null) {
+      print('TOken: $res');
+      if (res.accessToken == null) {
+        Navigator.pop(context);
         CoolAlert.show(
           backgroundColor: Colors.white,
           context: context,
@@ -56,7 +62,9 @@ class AuthProvider extends ChangeNotifier {
     required int gender,
   }) async {
     String? token = await _notification.generateToken();
-    print(token);
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => RegisterLoading()));
     await _services
         .register(
       firstName: firstName.text,
@@ -74,12 +82,24 @@ class AuthProvider extends ChangeNotifier {
 
         Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
         CoolAlert.show(
+          confirmBtnColor: Theme.of(context).primaryColor,
           backgroundColor: Colors.white,
           context: context,
           type: CoolAlertType.success,
+          title: 'Registered Successfully',
           text:
-              'Registered Successfully, you can now use your QR code when entering establishments, riding transportaion and even to other people. Your health is our concern',
+              'You can now use your QR code when entering establishments, riding transportaion and even to other people.',
         );
+      } else {
+        CoolAlert.show(
+          backgroundColor: Colors.white,
+          context: context,
+          type: CoolAlertType.error,
+          title: 'Login Failed',
+          text: 'Phone number already in use',
+          confirmBtnColor: Colors.red,
+        );
+        Navigator.pop(context);
       }
     });
   }

@@ -16,7 +16,7 @@ class RegisterModel {
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) => RegisterModel(
         status: json["status"],
-        user: User.fromJson(json["user"]),
+        user: json['user'] == null ? null : User.fromJson(json["user"]),
         accessToken: json["access_token"],
       );
 

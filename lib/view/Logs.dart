@@ -90,6 +90,44 @@ class _LogsState extends State<Logs> {
         ],
       );
     }
+
+    if (logs.civilianLogs!.length == 0) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Adaptive.h(
+            double.parse(GlobalConfiguration().get('padding')),
+          ),
+          vertical: 3.0.h,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Civilian',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 1.h),
+              child: Divider(),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'No data found',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(
         horizontal: Adaptive.h(
@@ -185,6 +223,43 @@ class _LogsState extends State<Logs> {
             ),
           ),
         ],
+      );
+    }
+
+    if (logs.establishmentLogs!.length == 0) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Adaptive.h(
+            double.parse(GlobalConfiguration().get('padding')),
+          ),
+          vertical: 3.0.h,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Establishments',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 1.h),
+              child: Divider(),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'No data found',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       );
     }
 
@@ -288,6 +363,43 @@ class _LogsState extends State<Logs> {
             ),
           ),
         ],
+      );
+    }
+
+    if (logs.vehicleLogs!.length == 0) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Adaptive.h(
+            double.parse(GlobalConfiguration().get('padding')),
+          ),
+          vertical: 3.0.h,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Vehicle',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 1.h),
+              child: Divider(),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'No data found',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       );
     }
 

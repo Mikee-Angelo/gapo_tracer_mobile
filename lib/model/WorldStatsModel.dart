@@ -22,33 +22,34 @@ class WordStatsModel {
   int? oneTestPerPeople;
   int? undefined;
   double? activePerOneMillion;
-  double? recoveredPerOneMillion;
-  int? criticalPerOneMillion;
+  dynamic recoveredPerOneMillion;
+  dynamic criticalPerOneMillion;
   int? affectedCountries;
 
-  WordStatsModel(
-      {this.updated,
-      this.cases,
-      this.todayCases,
-      this.deaths,
-      this.todayDeaths,
-      this.recovered,
-      this.todayRecovered,
-      this.active,
-      this.critical,
-      this.casesPerOneMillion,
-      this.deathsPerOneMillion,
-      this.tests,
-      this.testsPerOneMillion,
-      this.population,
-      this.oneCasePerPeople,
-      this.oneDeathPerPeople,
-      this.oneTestPerPeople,
-      this.undefined,
-      this.activePerOneMillion,
-      this.recoveredPerOneMillion,
-      this.criticalPerOneMillion,
-      this.affectedCountries});
+  WordStatsModel({
+    this.updated,
+    this.cases,
+    this.todayCases,
+    this.deaths,
+    this.todayDeaths,
+    this.recovered,
+    this.todayRecovered,
+    this.active,
+    this.critical,
+    this.casesPerOneMillion,
+    this.deathsPerOneMillion,
+    this.tests,
+    this.testsPerOneMillion,
+    this.population,
+    this.oneCasePerPeople,
+    this.oneDeathPerPeople,
+    this.oneTestPerPeople,
+    this.undefined,
+    this.activePerOneMillion,
+    this.recoveredPerOneMillion,
+    this.criticalPerOneMillion,
+    this.affectedCountries,
+  });
 
   WordStatsModel.fromJson(Map<String, dynamic> json) {
     updated = json['updated'];
