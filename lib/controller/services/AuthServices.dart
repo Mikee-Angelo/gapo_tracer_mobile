@@ -24,6 +24,7 @@ class AuthServices {
       'password': password,
     }).then(
       (res) {
+        print(res.body);
         return LoginModel.fromJson(json.decode(res.body));
       },
     ).catchError((e) => throw ('Error: $e'));

@@ -13,7 +13,7 @@ class LoginModel {
   String? accessToken;
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-        user: User.fromJson(json["user"]),
+        user: json['user'] == null ? null : User.fromJson(json["user"]),
         accessToken: json["access_token"],
       );
 

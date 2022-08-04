@@ -27,9 +27,8 @@ WordStatsModel _$WordStatsModelFromJson(Map<String, dynamic> json) {
     oneTestPerPeople: json['oneTestPerPeople'] as int?,
     undefined: json['undefined'] as int?,
     activePerOneMillion: (json['activePerOneMillion'] as num?)?.toDouble(),
-    recoveredPerOneMillion:
-        (json['recoveredPerOneMillion'] as num?)?.toDouble(),
-    criticalPerOneMillion: json['criticalPerOneMillion'] as int?,
+    recoveredPerOneMillion: json['recoveredPerOneMillion'],
+    criticalPerOneMillion: json['criticalPerOneMillion'],
     affectedCountries: json['affectedCountries'] as int?,
   );
 }
