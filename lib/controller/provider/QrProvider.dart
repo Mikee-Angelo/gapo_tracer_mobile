@@ -19,15 +19,15 @@ class QrProvider extends ChangeNotifier {
       _scanned = true;
 
       if (_scanned) {
-        if (scanData.code.length > 0) {
+        if (scanData.code!.length > 0) {
           controller.pauseCamera();
 
           _scanned = false;
 
-          String identifier = scanData.code[0];
+          String identifier = scanData.code![0];
 
-          CreateScanModel res =
-              await _services.scan(guid: scanData.code, identifier: identifier);
+          CreateScanModel res = await _services.scan(
+              guid: scanData.code!, identifier: identifier);
 
           Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
 
