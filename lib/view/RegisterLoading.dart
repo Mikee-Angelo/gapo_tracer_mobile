@@ -17,7 +17,7 @@ class _RegisterLoadingState extends State<RegisterLoading> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SpinKitPouringHourglass(
+          SpinKitPouringHourGlassRefined(
             color: Colors.white,
             size: 4.h,
           ),
